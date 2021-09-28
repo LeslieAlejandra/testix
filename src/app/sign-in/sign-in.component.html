@@ -1,0 +1,27 @@
+<div class="page">
+  <div class="form">
+    <form [formGroup]="userForm">
+
+      <input type="text" formControlName="email" placeholder="Email" />
+      <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors.required">
+          Email is required
+        </div>
+      </div>
+
+      <input type="password" formControlName="password" placeholder="Password" />
+      <div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.errors.required">
+          Password is required
+        </div>
+      </div>
+
+      <button onclick="location.href='/colors'" type="submit" [disabled]="!userForm.valid" (click)="storage()">sign in</button>
+
+    </form>
+  </div>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
